@@ -1,4 +1,4 @@
-package com.eligustilo.bagofholding
+package com.eligustilo.main
 
 import android.view.LayoutInflater
 import android.view.View

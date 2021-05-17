@@ -1,4 +1,4 @@
 include ':Hermez'
 include ':Hermez'
 include ':app'
-rootProject.name = "Bag of Holding"
+rootProject.name = "Hermez"

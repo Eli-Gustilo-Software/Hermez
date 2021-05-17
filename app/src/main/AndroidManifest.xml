@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.eligustilo.bagofholding">
+    package="com.eligustilo.main">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
@@ -11,11 +11,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BagOfHolding">
+        android:theme="@style/Theme.Hermez">
         <activity
-            android:name="com.eligustilo.bagofholding.MainActivity"
+            android:name="com.eligustilo.main.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.BagOfHolding.NoActionBar">
+            android:theme="@style/Theme.Hermez.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

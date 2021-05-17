@@ -1,4 +1,4 @@
-package com.eligustilo.bagofholding
+package com.eligustilo.main
 
 import org.junit.Test
 

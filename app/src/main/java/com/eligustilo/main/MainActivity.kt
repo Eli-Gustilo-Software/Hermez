@@ -1,4 +1,4 @@
-package com.eligustilo.bagofholding
+package com.eligustilo.main
 
 import android.os.Bundle
 import android.view.Menu
