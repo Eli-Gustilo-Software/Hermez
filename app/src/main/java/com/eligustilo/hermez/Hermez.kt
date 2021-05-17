@@ -49,7 +49,7 @@ class Hermez(context: Context, serviceType: String) {
     private var hermezBrowser: HermezBrowser? = null
     private val unknownZeroConfigDevice: HermezDevice = HermezDevice("Unknown Device")
     private var myDeviceName : HermezDevice = HermezDevice(Build.MODEL)
-    private val PING = "PING"
+    private val PING: String = "PING"
 
     init {
         hermezService = HermezService()
@@ -138,6 +138,12 @@ class Hermez(context: Context, serviceType: String) {
         //SOFT reset
         //While hopefully unnecessary it may be desirable to be able to throw just the most unstable part. Discovery.
         hermezBrowser?.resetDiscovery()
+    }
+
+    fun cleanup(){
+        //Needs to be called OnPause and OnDestroy
+        HermezService().cleanup()
+        HermezBrowser().cleanup()
     }
 
 
@@ -229,6 +235,10 @@ class Hermez(context: Context, serviceType: String) {
             }
         }
 
+        fun cleanup(){
+            nsdManagerServer?.unregisterService(registrationListener)
+        }
+
         private val registrationListener = object : NsdManager.RegistrationListener {
             override fun onServiceRegistered(NsdServiceInfo: NsdServiceInfo) {
                 // Save the service name. Android may have changed it in order to
@@ -297,7 +307,7 @@ class Hermez(context: Context, serviceType: String) {
                                 val pingMessage = HermezMessage(PING, "", message.messageID, message.sendingDevice, message.receivingDevice)
                                 Log.d(tag, "message received from device: ${message.sendingDevice.name}, mHashtable: $mHashtable")
 
-                                if(!mHashtable.containsKey(message.sendingDevice.name)) { //if we don't have the message senders name then we need to restart discovery. todo can this be moved?
+                                if(!mHashtable.containsKey(message.sendingDevice.name)) { //if we don't have the message senders name then we need to restart discovery.
                                     hermezBrowser?.resetDiscovery(false)
                                 }
                                 val writer: PrintWriter
@@ -311,7 +321,6 @@ class Hermez(context: Context, serviceType: String) {
                                     // If the writer fails to initialize there was an io problem, close your connection
                                     client.close()
                                     objectToNotify?.messageCannotBeSentToDevices(pingMessage, HermezError.MESSAGE_NOT_SENT)
-                                    //todo we should add this to a message queue???
                                 }
 
 
@@ -369,6 +378,10 @@ class Hermez(context: Context, serviceType: String) {
                 delay(3000) // non-blocking delay for 1 second (default time unit is ms)
                 discoverService()
             }
+        }
+
+        fun cleanup(){
+            nsdManagerClient?.stopServiceDiscovery(discoveryListener)
         }
 
         private val discoveryListener = object : DiscoveryListener {
