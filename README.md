@@ -1,4 +1,4 @@
-HERMEZero config library
+# ![Hermez Logo](/hermez.png)
 Version 0.5.0 (Beta), License MIT
 
 Hermez is an application communications library that allows iOS, Android and Mac devices on the same local network to easily and automatically communicate with each other. Under the hood Hermez uses zero configuration to facilitate communications between different types of devices (see, Zero-configuration networking - Wikipedia).
