@@ -9,7 +9,7 @@ Hermez is an application communications library that allows iOS, Android and Mac
 
 **Install on Android**
 
-Simply add the one file Hermez to your application. It is an object that will need to be instantiated. MainActivity is an ideal place to do this.
+Simply add the one file, [Hermez.kt](https://github.com/Eli-Gustilo-Software/Hermez/tree/main/app/src/main/java/com/eligustilo/hermez), to your application. It is an object that will need to be instantiated. MainActivity is an ideal place to do this.
 https://github.com/Eli-Gustilo-Software/Hermez/tree/main/app/src/main/java/com/eligustilo/hermez
 
 **How To Use on Android**
