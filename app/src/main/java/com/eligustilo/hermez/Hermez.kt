@@ -31,6 +31,7 @@ import kotlin.collections.ArrayList
 * 3) Your app can call findDevices to obtain a ArrayList of devices on the local WiFi network utilizing your _myexampletype._tcp serviceType.
 * 4) Your app may then send a Message Object to any unique deviceName sharing your unique serviceType. Example: mMyMessage = ("Name", "ParsableMessage", "UniqueMessageID", deviceNameToSendTo)
 * 5) When you send a message your app 'discovers' all nearby devices with _myexampletype._tcp and then looks for deviceNameToSendTo and relays your message ASynchronously
+* 6) It is highly recommended to call cleanup upon app closure.
 * */
 
 
